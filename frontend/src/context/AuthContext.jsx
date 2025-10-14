@@ -4,7 +4,7 @@ import { useContext ,useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext=createContext({});
-
+import server from "../../environment"
 
 
 
@@ -19,7 +19,7 @@ export const AuthProvider=({children})=>{
       
         try{
 
-            let request=  await axios.post("http://localhost:3000/api/v1/users/register" ,{
+            let request=  await axios.post(`${server}/api/v1/users/register` ,{
                 name:name,
                 username:username,
                 password:password
@@ -45,7 +45,7 @@ export const AuthProvider=({children})=>{
 
         try{
 
-            let request=  await axios.post("http://localhost:3000/api/v1/users/login" ,{
+            let request=  await axios.post(`${server}/api/v1/users/login` ,{
                 username:username,
                 password:password
             })
@@ -71,7 +71,7 @@ export const AuthProvider=({children})=>{
 
     const getUserHistory= async()=>{
         try{
-            let request=await axios.get("http://localhost:3000/api/v1/users/get_all_activity",{
+            let request=await axios.get(`${server}/api/v1/users/get_all_activity`,{
                params:{
                 token:localStorage.getItem("token")
                }
@@ -87,7 +87,7 @@ export const AuthProvider=({children})=>{
 
     const addUserHistory=async(meetingCode)=>{
          try{
-            let request=await axios.post("http://localhost:3000/api/v1/users/add_to_activity",{
+            let request=await axios.post(`${server}/api/v1/users/add_to_activity`,{
               token:localStorage.getItem("token"),
               meetingCode:meetingCode
             })

@@ -1,0 +1,86 @@
+.landingContainer{
+    width: 100vw;
+    height: 100vh;
+    background:url("/background.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    color: white;
+}
+
+
+.landingContainer nav{
+    padding-inline: 1.8rem;
+    padding-block: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+
+
+.landingContainer nav h3{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.navHeader h3{
+  font-family: cursive;      
+  letter-spacing: 0.2rem;  
+  color:rgb(229, 134, 10);  
+  font-weight: bolder;  
+}
+
+
+.landingContainer nav .navList{
+    display: flex;
+    gap: 3rem;
+     cursor: pointer;
+}
+
+
+.landingMainContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 4rem;
+    height: 85vh;
+    align-items: center;
+}
+
+ .right-img img{
+   height: 70vh;
+   width: auto; 
+}
+
+.left-text{
+    font-size: 1.5rem;
+}
+
+.left-text h1{
+    margin-bottom: 1rem;
+}
+
+
+.left-text-button p{
+ background-color: #D97500;
+ width:20%;
+ padding: 0.3rem;
+ text-decoration: none;
+ border-radius: 0.4rem;
+ font-weight: 500;
+ color: white;
+ font-size: medium;
+ margin-top: 1.5rem;
+ text-align: center;
+}
+
+
+.nav-button-login{
+ background-color: #D97500;
+ padding: 0.3rem;
+ text-decoration: none;
+ border-radius: 0.4rem;
+ font-weight: 500;
+ color: white;
+ font-size: medium;
+ text-align: center;
+}

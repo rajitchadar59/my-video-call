@@ -1,0 +1,128 @@
+.authPage {
+  width: 100vw;
+  height: 100vh;
+  background: url("/background.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Glass Form Container */
+.formContainer {
+  width: 100%;
+  max-width: 420px;
+  padding: 50px 40px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.55); /* dark tint */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.formTitle {
+  text-align: center;
+  margin-bottom: 70px; 
+  font-weight: 700;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* gap between inputs */
+}
+
+/* === Stylish Inputs === */
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 14px 12px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: all 0.3s ease;
+}
+
+.inputGroup:hover {
+  border-color: #ff7a18;
+  box-shadow: 0 0 12px rgba(255, 122, 24, 0.4);
+}
+
+.inputIcon {
+  color: #ccc;
+  margin-right: 10px;
+}
+
+.inputWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.inputWrapper input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  padding: 12px 0 6px 0;
+  background: transparent;
+  color: #fff;
+}
+
+.floatingLabel {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  font-size: 14px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.inputWrapper:focus-within .floatingLabel,
+.inputWrapper input:not(:placeholder-shown) + .floatingLabel {
+  top: -8px;
+  font-size: 12px;
+  color: #ff7a18;
+}
+
+/* === Stylish Buttons === */
+.submitBtn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #ff7a18, #af002d);
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 12px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(135deg, #af002d, #ff7a18);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 122, 24, 0.5);
+}
+
+.toggleBtn {
+  text-transform: none;
+  color: #4da6ff;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.toggleBtn:hover {
+  color: #82c4ff;
+}

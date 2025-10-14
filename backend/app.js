@@ -32,5 +32,5 @@ app.use(express.urlencoded({limit:"40kb" ,extended:true}));
 app.use("/api/v1/users",users);
 
 server.listen(port,()=>{
-    console.log(`listining on port ${port}`);
+    console.log(`listining on port : ${port}`);
 })

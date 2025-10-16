@@ -19,7 +19,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 
 
-const server_url = "http://localhost:3000";
+const server_url = server;
 
 const connections = {}
 

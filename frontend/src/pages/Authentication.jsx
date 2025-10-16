@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Box, Button, Snackbar, Typography } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
@@ -56,6 +56,21 @@ const Authentication = () => {
     }
 
   }
+
+
+  useEffect(()=>{
+    
+     const isAuthenticated = () => {
+      return !!localStorage.getItem("token");
+    };
+
+    if (!isAuthenticated()) {
+      routeTo("/auth");
+    } else {
+      routeTo("/home");
+    }
+
+  },[])
 
   return (
     <>

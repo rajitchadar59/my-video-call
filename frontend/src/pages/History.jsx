@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton'
 import HomeIcon from '@mui/icons-material/Home';
 import Snackbar from '@mui/material/Snackbar';
-
+import "./History.css"
 
 function History() {
   const { getUserHistory } = useContext(AuthContext);
@@ -45,9 +45,9 @@ function History() {
 
 
   return (
-    <div>
+    <div className='history-container'>
 
-      <IconButton onClick={()=>{
+      <IconButton className="homeButton" onClick={()=>{
         routeTo("/home")
       }}>
        <HomeIcon/>
@@ -58,7 +58,7 @@ function History() {
 
           <>
 
-            <Card variant="outlined" key={i}>
+            <Card className="historyCard" variant="outlined" key={i}>
 
 
               <CardContent>
@@ -78,7 +78,7 @@ function History() {
           </>
 
         )
-      }) : <p>No History Available</p>}
+      }) : <p  className="noHistory">No History Available</p>}
 
       <Snackbar
         open={snackbarOpen}

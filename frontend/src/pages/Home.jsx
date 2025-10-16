@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-import WithAuth from '../utils/WithAuth';
+import WithAuth from '../utils/withAuth';
 import "./Home.css"
 import IconButton from '@mui/material/IconButton'
 import RestoreIcon from '@mui/icons-material/Restore'
 import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
 import { AuthContext } from "../context/AuthContext";
 import {Link}  from "react-router-dom"
 
@@ -25,21 +24,23 @@ function Home() {
     }
 
     return (
-        <>
+       <div className="container">
 
             <div className="navBar">
 
                 <div style={{ display: "flex", alignItems: "center" }}>
-                    <h3>My Video Call <i class="fa-solid fa-video"></i>  </h3>
+                    <h3 onClick={()=>{
+                        router("/");
+                    }}>My Video Call <i class="fa-solid fa-video"></i>  </h3>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center" }} className='nav-buttons'>
                     
                     <Link to={"/history"}>
                     
                     <IconButton>
                         <RestoreIcon /> 
-                        <p style={{textDecoration:"none" ,fontSize:"1rem" ,margin:"0.3rem"}}>History</p>
+                        <p style={{textDecoration:"none" ,fontSize:"1rem" ,margin:"0.3rem"}}> <span style={{color:"#00b3ff"}}>History</span> </p>
                     </IconButton>
 
                     </Link>
@@ -62,13 +63,14 @@ function Home() {
                     <div>
                         <h2 style={{marginBottom:"1rem"}}>Providing  Quality Video Call Just Like Quality Education</h2>
 
-                        <div style={{ display: "flex", gap: "10px" }}>
+                        <div style={{ display: "flex", gap: "10px"  }}>
 
-                            <TextField
-
+                            <input
+                                type='text'
                                 id="outline"
                                 value={meetingCode}
                                 onChange={(e) => setmeetingCode(e.target.value)}
+                                
 
                             />
 
@@ -80,15 +82,15 @@ function Home() {
 
                 <div className='rightPanel'>
 
-                    <img srcSet='/logo3.png' alt="" />
+                    <img srcSet='/logo.png' alt="" />
 
                 </div>
 
             </div>
 
 
+</div>
 
-        </>
     )
 }
 

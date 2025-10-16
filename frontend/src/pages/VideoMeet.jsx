@@ -13,12 +13,13 @@ import ScreenShareIcon from '@mui/icons-material/ScreenShare';
 import StopScreenShareIcon from '@mui/icons-material/StopScreenShare';
 import Badge from '@mui/material/Badge';
 import ChatIcon from '@mui/icons-material/Chat';
-import {useNavigate} from 'react-router-dom'
-import server from "../../environment"
+import { useNavigate } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home';
 
 
-const server_url =server;
+
+
+const server_url = "http://localhost:3000";
 
 const connections = {}
 
@@ -67,7 +68,7 @@ export default function VideoMeet() {
 
 
   const [videos, setvideos] = useState([]);
-   
+
 
   let routeTo = useNavigate();
 
@@ -543,7 +544,7 @@ export default function VideoMeet() {
 
 
   let handleChat = () => {
-  
+
     setshowModel(!showModel);
 
   }
@@ -578,54 +579,53 @@ export default function VideoMeet() {
 
 
   let handleEndCall = () => {
-  try {
-    // Stop local video/audio tracks
-    if (localVideoRef.current && localVideoRef.current.srcObject) {
-      const tracks = localVideoRef.current.srcObject.getTracks();
-      tracks.forEach(track => track.stop());
-    }
-
-    // Close all peer connections
-    for (let id in connections) {
-      try {
-        connections[id].close();
-      } catch (e) {
-        console.log("Error closing peer:", e);
+    try {
+      // Stop local video/audio tracks
+      if (localVideoRef.current && localVideoRef.current.srcObject) {
+        const tracks = localVideoRef.current.srcObject.getTracks();
+        tracks.forEach(track => track.stop());
       }
-      delete connections[id];
+
+      // Close all peer connections
+      for (let id in connections) {
+        try {
+          connections[id].close();
+        } catch (e) {
+          console.log("Error closing peer:", e);
+        }
+        delete connections[id];
+      }
+
+
+      if (socketRef.current) {
+        socketRef.current.disconnect();
+      }
+
+
+      window.localStream = null;
+    } catch (e) {
+      console.log("Error ending call:", e);
     }
 
-    
-    if (socketRef.current) {
-      socketRef.current.disconnect();
+
+    const isAuthenticated = () => {
+      return !!localStorage.getItem("token");
+    };
+
+    if (!isAuthenticated()) {
+      routeTo("/");
+    } else {
+      routeTo("/home");
     }
 
-    
-    window.localStream = null;
-  } catch (e) {
-    console.log("Error ending call:", e);
-  }
-
- 
-  const isAuthenticated = () => {
-    return !!localStorage.getItem("token");
   };
-
-  if (!isAuthenticated()) {
-    routeTo("/");
-  } else {
-    routeTo("/home");
-  }
-
-};
 
 
   return (
     <div>
 
       {askForUsername === true ?
-         
-         <div className="lobbyContainer">
+        <div className="lobbyContainer">
 
            <IconButton
           onClick={() => routeTo("/")}
@@ -654,11 +654,11 @@ export default function VideoMeet() {
 
             <video ref={localVideoRef} autoPlay muted></video>
           </div>
-        </div>  :
+        </div> :
 
         <div className='meetVideoContainer'>
 
-          <video className='meetUserVideo' ref={localVideoRef} autoPlay ></video>
+          <video className='meetUserVideo' ref={localVideoRef} autoPlay muted></video>
 
           {showModel ? <div className="chatRoom">
 
@@ -672,19 +672,19 @@ export default function VideoMeet() {
 
                 <div className="chattingDisplay">
 
-                  {messages.length> 0 ? messages.map((item, i) => (
+                  {messages.length > 0 ? messages.map((item, i) => (
 
-                    <div key={i}  style={{marginBottom:"20px"}}>
-                      <p style={{fontWeight:"bold"}}><p>{item.sender === username ? "You" : item.sender}</p></p>
+                    <div key={i} style={{ marginBottom: "20px" }}>
+                      <p style={{ fontWeight: "bold" }}>{item.sender}</p>
                       <p>{item.data}</p>
                     </div>
 
-                  )):<p>No Messages Yet</p>}
+                  )) : <p>No Messages Yet</p>}
 
                 </div>
 
                 <TextField id="outlined-basic" label="Type a Message " variant="outlined" value={message} onChange={(e) => setmessage(e.target.value)} />
-                <Button variant='contained' onClick={sendMessage}>Send</Button>
+                <Button variant='contained' onClick={sendMessage} style={{ marginTop: "1rem" }}>Send</Button>
 
 
               </div>
@@ -743,7 +743,7 @@ export default function VideoMeet() {
                     }}
                     autoPlay
                     playsInline
-                   
+                    muted
 
                   >
                   </video>

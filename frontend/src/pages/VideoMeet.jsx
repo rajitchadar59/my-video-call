@@ -652,13 +652,13 @@ export default function VideoMeet() {
             />
             <Button variant="contained" onClick={connect}>Connect</Button>
 
-            <video ref={localVideoRef} autoPlay muted></video>
+            <video ref={localVideoRef} autoPlay ></video>
           </div>
         </div> :
 
         <div className='meetVideoContainer'>
 
-          <video className='meetUserVideo' ref={localVideoRef} autoPlay muted></video>
+          <video className='meetUserVideo' ref={localVideoRef} autoPlay ></video>
 
           {showModel ? <div className="chatRoom">
 
@@ -743,7 +743,7 @@ export default function VideoMeet() {
                     }}
                     autoPlay
                     playsInline
-                    muted
+                    
 
                   >
                   </video>

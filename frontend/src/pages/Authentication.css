@@ -1,68 +1,80 @@
+
 .authPage {
   width: 100vw;
   height: 100vh;
-  background: url("/background.png") no-repeat center center;
+  background: url("/background.png") no-repeat center center fixed;
   background-size: cover;
-  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-family: "Poppins", sans-serif;
+  color: #e4e9f1;
+  font-family: "Inter", "Poppins", sans-serif;
+  overflow-x: hidden;
+  padding: 1rem;
 }
 
-/* Glass Form Container */
 .formContainer {
   width: 100%;
   max-width: 420px;
-  padding: 50px 40px;
-  border-radius: 18px;
-  background: rgba(0, 0, 0, 0.55); /* dark tint */
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  background: rgba(15, 17, 22, 0.7);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+ 
+  border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+
 }
 
+
 .formTitle {
-  text-align: center;
-  margin-bottom: 70px; 
-  font-weight: 700;
-  font-size: 1.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  gap: 10px;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #ffffff;
   letter-spacing: 1px;
+  font-family: "Orbitron", "Poppins", sans-serif;
+  text-shadow: 0 0 10px rgba(77, 166, 255, 0.4);
+}
+
+.formTitleIcon {
+  font-size: 1.8rem;
+  color: #00b3ff;
+  filter: drop-shadow(0 0 5px rgba(0, 179, 255, 0.6));
 }
 
 
 .formBox {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* gap between inputs */
+  gap: 20px;
 }
 
-/* === Stylish Inputs === */
+
 .inputGroup {
   position: relative;
   display: flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
   padding: 14px 12px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
 
 .inputGroup:hover {
-  border-color: #ff7a18;
-  box-shadow: 0 0 12px rgba(255, 122, 24, 0.4);
+  border-color: #00b3ff;
+  box-shadow: 0 0 10px rgba(0, 179, 255, 0.4);
 }
 
 .inputIcon {
-  color: #ccc;
+  color: #aaa;
   margin-right: 10px;
+  font-size: 1.2rem;
 }
 
 .inputWrapper {
@@ -78,6 +90,7 @@
   padding: 12px 0 6px 0;
   background: transparent;
   color: #fff;
+  letter-spacing: 0.3px;
 }
 
 .floatingLabel {
@@ -85,7 +98,7 @@
   left: 0;
   top: 12px;
   font-size: 14px;
-  color: #aaa;
+  color: #999;
   pointer-events: none;
   transition: all 0.2s ease;
 }
@@ -94,35 +107,117 @@
 .inputWrapper input:not(:placeholder-shown) + .floatingLabel {
   top: -8px;
   font-size: 12px;
-  color: #ff7a18;
+  color: #00b3ff;
 }
 
-/* === Stylish Buttons === */
+
 .submitBtn {
   margin-top: 10px;
-  background: linear-gradient(135deg, #ff7a18, #af002d);
-  color: white;
-  font-weight: bold;
+  background: linear-gradient(135deg, #3dc3ff, #00aaff);
+  color: black;
+  font-weight: 600;
   border-radius: 25px;
   padding: 12px;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease;
+ 
+  border: none;
+  box-shadow: 0 0 12px rgba(0, 179, 255, 0.4);
 }
 
 .submitBtn:hover {
-  background: linear-gradient(135deg, #af002d, #ff7a18);
+  background: linear-gradient(135deg, #434d9a, #697c88);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 122, 24, 0.5);
+  
 }
 
 .toggleBtn {
   text-transform: none;
-  color: #4da6ff;
-  margin-top: 10px;
-  font-weight: bold;
+  color: #00b3ff;
+  margin-top: 15px;
+  font-weight: 600;
   transition: color 0.3s ease;
+  text-align: center;
 }
 
 .toggleBtn:hover {
   color: #82c4ff;
 }
+
+
+@media (max-width: 992px) {
+  .formContainer {
+    max-width: 380px;
+    padding: 2.5rem 2rem;
+  }
+
+  .formTitle {
+    font-size: 1.6rem;
+  }
+
+  .submitBtn {
+    font-size: 0.95rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .authPage {
+    padding: 1.5rem;
+  }
+
+  .formContainer {
+    max-width: 90%;
+    padding: 2rem 1.5rem;
+  }
+
+  .formTitle {
+    font-size: 1.5rem;
+  }
+
+  .formTitleIcon {
+    font-size: 1.5rem;
+  }
+
+  .inputWrapper input {
+    font-size: 14px;
+  }
+
+  .submitBtn {
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 1.8rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  .formTitle {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .formTitleIcon {
+    font-size: 1.4rem;
+  }
+
+  .inputGroup {
+    padding: 12px 10px;
+  }
+
+  .inputIcon {
+    font-size: 1rem;
+  }
+
+  .submitBtn {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+

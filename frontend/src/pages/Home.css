@@ -1,3 +1,12 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: url("/newbg.jpg") no-repeat center center/cover; 
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  color: #00b3ff;
+}
+
 .navBar {
   display: flex;
   align-items: center;
@@ -24,7 +33,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-
+  
 } 
 
 .rightPanel {
@@ -38,4 +47,83 @@
   border-radius: 20px;
 }
 
+input, textarea {
+    background-color: transparent; 
+    color: #ffffff;             
+    border: 2px solid #00b3ff;  
+    border-radius: 8px;         
+    padding: 10px 15px;        
+    font-size: 1rem;
+    outline: none;              
+    transition: all 0.3s ease;
+}
 
+.nav-buttons  :hover{
+  
+  box-shadow:  rgba(48, 183, 201, 0.8);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    
+  
+    .container {
+        height: auto; 
+        min-height: 100vh; 
+        padding-bottom: 40px;
+    }
+    
+    .navBar {
+      
+        padding-inline: 20px; 
+        padding-block: 15px;
+    }
+
+  
+    .meetContainer {
+       
+        flex-direction: column; 
+        height: auto; 
+        gap: 5vh; 
+        align-items: center;
+        
+        padding-inline: 20px; 
+        padding-top: 30px;
+    }
+
+    
+    .leftPanel,
+    .rightPanel {
+        width: 100%; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        flex: none; 
+    }
+    
+    
+    .leftPanel {
+        order: 2; 
+        align-items: center; 
+    }
+    .rightPanel {
+        order: 1;
+    }
+    
+
+   
+    input, textarea {
+        max-width: 90vw; 
+         /* margin-left: auto;
+        margin-right: auto;  */
+        text-align: center;
+       
+    }
+
+
+   
+    .rightPanel > img {
+        width: 80vw; 
+        max-width: 400px; 
+    }
+}

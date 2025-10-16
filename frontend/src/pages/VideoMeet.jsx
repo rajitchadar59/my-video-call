@@ -15,6 +15,7 @@ import Badge from '@mui/material/Badge';
 import ChatIcon from '@mui/icons-material/Chat';
 import {useNavigate} from 'react-router-dom'
 import server from "../../environment"
+import HomeIcon from '@mui/icons-material/Home';
 
 
 const server_url =server;
@@ -623,18 +624,37 @@ export default function VideoMeet() {
     <div>
 
       {askForUsername === true ?
+         
+         <div className="lobbyContainer">
 
-        <div>
+           <IconButton
+          onClick={() => routeTo("/")}
+          sx={{
+            position: "absolute",
+            top: "1rem",
+            left: "1rem",
+            color: "white",
+            zIndex: 1000,
+          }}
+        >
+          <HomeIcon />
+        </IconButton>
 
-          <h2>Enter into Lobby</h2>
-          <TextField id="outlined-basic" label="username" value={username} onChange={(e) => setusername(e.target.value)} variant="outlined" />
-          <Button variant="contained" onClick={connect} >Connect</Button>
 
-          <div>
-            <video ref={localVideoRef} autoPlay ></video>
+          <div className="lobbyBox">
+            <h2 style={{color:"white"}}>Enter into Lobby</h2>
+            <TextField
+              id="outlined-basic"
+              label="username"
+              value={username}
+              onChange={(e) => setusername(e.target.value)}
+              variant="outlined"
+            />
+            <Button variant="contained" onClick={connect}>Connect</Button>
+
+            <video ref={localVideoRef} autoPlay muted></video>
           </div>
-
-        </div> :
+        </div>  :
 
         <div className='meetVideoContainer'>
 

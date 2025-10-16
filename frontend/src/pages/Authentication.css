@@ -84,6 +84,7 @@
 
 .inputWrapper input {
   width: 100%;
+  text-align: start;
   border: none;
   outline: none;
   font-size: 15px;

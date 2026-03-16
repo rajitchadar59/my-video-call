@@ -2,12 +2,6 @@
 
 > A seamless, real-time video calling and collaboration platform built with WebRTC and WebSockets. Designed for smooth, interactive, and secure online meetings.
 
-<div align="center">
-  <img src="[Tumhara-Main-Project-Image-Link-Yahan]" alt="My Video Call Dashboard Preview" width="100%" />
-</div>
-
-<br/>
-
 [![Tech Stack](https://img.shields.io/badge/Tech-MERN_Stack-blue)](#)
 [![Real-Time](https://img.shields.io/badge/RealTime-Socket.io-black)](#)
 [![P2P Video](https://img.shields.io/badge/Video-WebRTC-green)](#)
@@ -28,27 +22,6 @@ It completely bypasses complex setups by offering a **"Join as Guest"** feature,
 - **🏃‍♂️ Join as Guest:** Frictionless entry into meetings without the need for signing up.
 - **📜 Meeting History:** Registered users can track and view their past meeting records.
 - **🔐 Secure Authentication:** Robust user signup/login using Bcrypt and Crypto for password hashing and data security.
-
----
-
-## 📸 Visual Walkthrough
-
-*(Replace the `src` links below with your actual GitHub image links when you are ready)*
-
-### 1. Authentication & Dashboard
-| Landing Page / Guest Join | User Dashboard |
-| :---: | :---: |
-| <img src="[Link-Yahan-Daalein]" width="400" /> | <img src="[Link-Yahan-Daalein]" width="400" /> |
-
-### 2. Meeting Room & Collaboration
-| Video Call Interface | In-Meeting Chat |
-| :---: | :---: |
-| <img src="[Link-Yahan-Daalein]" width="400" /> | <img src="[Link-Yahan-Daalein]" width="400" /> |
-
-### 3. Screen Sharing & History
-| Screen Share Feature | Meeting History Page |
-| :---: | :---: |
-| <img src="[Link-Yahan-Daalein]" width="400" /> | <img src="[Link-Yahan-Daalein]" width="400" /> |
 
 ---
 
